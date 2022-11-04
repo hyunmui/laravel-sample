@@ -9,7 +9,14 @@
 </head>
 
 <body>
-    <p>안녕하세요!</p>
+
+        @if (Auth::check())
+            <p>안녕하세요! {{ \Auth::user()->name}}님</p>
+            <p><a href="/logout">로그아웃</a></p>
+        @else
+            <p>안녕하세요! 게스트님</p>
+            <p><a href="/login">로그인</a> <a href="/register">회원등록</a></p>
+        @endif
 </body>
 
 </html>
